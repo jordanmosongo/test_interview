@@ -5,6 +5,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const connectDB = require("./config/db");
+const usersRoutes = require('./routes/user');
+const rolesRoutes = require('./routes/role');
 
 dotenv.config();
 
@@ -18,8 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // api's routes
 
-/* app.use('/api', )
-app.use('/api/users', ) */
+app.use('/api/users', usersRoutes);
+app.use('/api/roles', rolesRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 
